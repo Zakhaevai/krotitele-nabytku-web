@@ -1,0 +1,530 @@
+/* ============================================================
+   KROTITELÉ NÁBYTKU — style.css
+   Jeden stylesheet pro všechny stránky.
+
+   Chcete změnit barvy nebo písma? Stačí upravit proměnné
+   v bloku :root níže — propíše se to do celého webu.
+   ============================================================ */
+
+:root {
+  /* Barvy — inspirace bruselským stylem a materiály dílny */
+  --petrolej:        #1D5C58;  /* hlavní barva značky */
+  --petrolej-tmavy:  #153F3C;  /* patička, hover */
+  --papir:           #F4F2EB;  /* podklad stránky */
+  --pisek:           #E8E2D3;  /* karty, střídavé sekce */
+  --pisek-tmavy:     #CFC5AD;  /* linky, rámečky */
+  --orech:           #6B4423;  /* ořechové dřevo — akcenty, „před" */
+  --mosaz:           #C2953B;  /* mosazný akcent — používat střídmě */
+  --inkoust:         #23211C;  /* text */
+  --inkoust-tlumeny: #5C574C;  /* vedlejší text */
+
+  /* Písma (načítají se v <head> každé stránky) */
+  --pismo-titulky: "Zilla Slab", "Georgia", serif;
+  --pismo-text:    "Work Sans", "Segoe UI", sans-serif;
+
+  --sirka: 1100px;   /* max. šířka obsahu */
+  --radius: 4px;
+}
+
+/* ---------- Základ ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--papir);
+  color: var(--inkoust);
+  font-family: var(--pismo-text);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--pismo-titulky);
+  line-height: 1.12;
+  margin: 0 0 0.6em;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--petrolej); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--petrolej-tmavy); }
+
+:focus-visible {
+  outline: 3px solid var(--mosaz);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: var(--sirka);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section { padding: 4.5rem 0; }
+.section--pisek { background: var(--pisek); }
+.section--uzka { padding: 3rem 0; }
+
+/* Nadpis sekce s „očkem" (malý štítek nad nadpisem) */
+.eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--petrolej);
+  margin-bottom: 0.9rem;
+}
+
+.section-head { max-width: 640px; margin-bottom: 2.5rem; }
+.section-head p { color: var(--inkoust-tlumeny); }
+
+/* ---------- Hlavička a navigace ---------- */
+
+.header {
+  background: var(--papir);
+  border-bottom: 1px solid var(--pisek-tmavy);
+}
+
+.header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  font-family: var(--pismo-titulky);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--inkoust);
+  text-decoration: none;
+}
+.brand span { color: var(--petrolej); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.4rem; }
+
+.nav a {
+  color: var(--inkoust);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover { color: var(--petrolej); }
+
+/* Aktivní stránka — v HTML má odkaz atribut aria-current="page" */
+.nav a[aria-current="page"] {
+  color: var(--petrolej);
+  border-bottom-color: var(--mosaz);
+}
+
+/* ---------- Hero (úvodní panel) ---------- */
+
+.hero {
+  background: var(--petrolej);
+  color: var(--papir);
+  padding: 4.5rem 0 5rem;
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero .eyebrow { color: var(--mosaz); }
+
+.hero h1 { color: #FBFAF5; margin-bottom: 0.5em; }
+
+.hero p {
+  font-size: 1.15rem;
+  color: #DCE5DD;
+  max-width: 34em;
+}
+
+.hero-akce { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.8rem; }
+
+/* Menší varianta hero pro podstránky */
+.hero--nizky { padding: 3.2rem 0; }
+.hero--nizky .wrap { display: block; }
+.hero--nizky p { margin-bottom: 0; }
+
+/* ---------- Tlačítka ---------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--pismo-text);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  background: var(--petrolej);
+  color: #FBFAF5;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.btn:hover { background: var(--petrolej-tmavy); color: #FBFAF5; transform: translateY(-2px); }
+
+/* Mosazné tlačítko — hlavní akce na petrolejovém pozadí */
+.btn--mosaz { background: var(--mosaz); color: var(--inkoust); }
+.btn--mosaz:hover { background: #D3A54A; color: var(--inkoust); }
+
+/* Obrysové tlačítko */
+.btn--obrys { background: transparent; border-color: currentColor; color: var(--papir); }
+.btn--obrys:hover { background: rgba(255,255,255,0.08); color: var(--papir); transform: translateY(-2px); }
+
+.hero--nizky .btn { margin-top: 1.6rem; }
+
+/* ---------- Foto-náhrady (placeholdery)  ----------
+   Než budete mít fotky, drží místo tyhle bloky.
+   Nahrazení: celý <div class="ph …"> smažte a místo něj dejte
+   <img src="fotky/nazev.jpg" alt="popis kusu" class="foto">        */
+
+.ph {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--pisek);
+  border: 1px dashed var(--pisek-tmavy);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ph small {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkoust-tlumeny);
+  background: rgba(244, 242, 235, 0.85);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius);
+  text-align: center;
+  max-width: 90%;
+}
+
+.ph--vysoky { aspect-ratio: 4 / 5; }
+
+/* Varianta „před / po" — diagonálně rozdělený blok.
+   Tmavá půlka = před renovací, světlá = po. Náš poznávací motiv. */
+.ph--pred-po {
+  background: linear-gradient(105deg, var(--orech) 0 50%, var(--pisek) 50% 100%);
+}
+
+.ph--pred-po::before,
+.ph--pred-po::after {
+  position: absolute;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius);
+}
+
+.ph--pred-po::before {
+  content: "PŘED";
+  top: 0.7rem; left: 0.7rem;
+  color: var(--pisek);
+  border: 1px solid rgba(232, 226, 211, 0.6);
+}
+
+.ph--pred-po::after {
+  content: "PO";
+  bottom: 0.7rem; right: 0.7rem;
+  color: var(--orech);
+  border: 1px solid var(--orech);
+}
+
+/* Hotová fotka (až placeholder nahradíte) */
+.foto { border-radius: var(--radius); width: 100%; height: auto; }
+
+/* ---------- Karty služeb (Co děláme) ---------- */
+
+.sluzby {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sluzba {
+  background: var(--pisek);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section--pisek .sluzba { background: var(--papir); }
+
+.sluzba p { color: var(--inkoust-tlumeny); flex-grow: 1; }
+
+.sluzba a { font-weight: 600; text-decoration: none; }
+.sluzba a::after { content: " →"; }
+.sluzba a:hover { text-decoration: underline; }
+
+/* ---------- Karty nábytku ---------- */
+
+.kusy {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.kus {
+  background: #FFFDF7;
+  border: 1px solid var(--pisek-tmavy);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.kus .ph { border: none; border-radius: 0; border-bottom: 1px dashed var(--pisek-tmavy); }
+
+.kus-telo { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; }
+
+.kus-telo h3 { margin-bottom: 0.1em; }
+
+.kus-meta { font-size: 0.95rem; color: var(--inkoust-tlumeny); margin: 0; }
+
+.kus-cena {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+/* Štítky stavu */
+.badge {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius);
+}
+
+.badge--sklad    { background: var(--petrolej); color: #FBFAF5; }
+.badge--renovace { background: var(--mosaz); color: var(--inkoust); }
+.badge--ceka     { background: var(--pisek); color: var(--inkoust-tlumeny); border: 1px solid var(--pisek-tmavy); }
+.badge--prodano  { background: var(--inkoust-tlumeny); color: var(--papir); }
+
+/* ---------- Kroky (Jak to probíhá) ---------- */
+
+.kroky { list-style: none; margin: 0; padding: 0; max-width: 720px; }
+
+.kroky li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1.2rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--pisek-tmavy);
+}
+
+.kroky li:last-child { border-bottom: none; }
+
+.kroky .cislo {
+  font-family: var(--pismo-titulky);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--petrolej);
+}
+
+.kroky h3 { font-size: 1.15rem; margin-bottom: 0.25em; }
+.kroky p { color: var(--inkoust-tlumeny); font-size: 1rem; }
+
+/* ---------- Zvýrazněný rámeček (ceny, upozornění) ---------- */
+
+.ramecek {
+  background: var(--pisek);
+  border-left: 4px solid var(--mosaz);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.7rem;
+  max-width: 720px;
+}
+
+.section--pisek .ramecek { background: var(--papir); }
+
+/* ---------- Výzva (Sháníte konkrétní kus?) ---------- */
+
+.vyzva {
+  background: var(--petrolej);
+  color: var(--papir);
+  border-radius: var(--radius);
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+
+.vyzva .eyebrow { color: var(--mosaz); }
+.vyzva h2 { color: #FBFAF5; }
+.vyzva p { color: #DCE5DD; max-width: 38em; margin: 0 auto 1em; }
+.vyzva .btn { margin-top: 0.8rem; }
+
+/* ---------- Dvousloupcová sekce (foto + text, např. Kdo jsme) ---------- */
+
+.dvousloupec {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ---------- Kontakty ---------- */
+
+.kontakty {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.kontakt-karta {
+  background: var(--pisek);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+}
+
+.kontakt-karta h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+.kontakt-karta p { color: var(--inkoust-tlumeny); font-size: 0.98rem; }
+.kontakt-karta a { font-weight: 600; }
+
+/* ---------- Formulář ---------- */
+
+.formular { max-width: 640px; }
+
+.formular label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 1.2rem 0 0.35rem;
+}
+
+.formular input,
+.formular select,
+.formular textarea {
+  width: 100%;
+  font-family: var(--pismo-text);
+  font-size: 1rem;
+  color: var(--inkoust);
+  background: #FFFDF7;
+  border: 1px solid var(--pisek-tmavy);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+}
+
+.formular textarea { min-height: 9rem; resize: vertical; }
+
+.formular input:focus,
+.formular select:focus,
+.formular textarea:focus {
+  outline: 3px solid var(--mosaz);
+  outline-offset: 1px;
+  border-color: var(--mosaz);
+}
+
+.formular .btn { margin-top: 1.6rem; }
+
+.formular .pozn { font-size: 0.9rem; color: var(--inkoust-tlumeny); margin-top: 0.8rem; }
+
+/* ---------- Patička ---------- */
+
+.footer {
+  background: var(--petrolej-tmavy);
+  color: #C9D6CE;
+  padding: 3.5rem 0 2rem;
+  font-size: 0.95rem;
+}
+
+.footer a { color: #EDEAE0; }
+.footer a:hover { color: var(--mosaz); }
+
+.footer-sloupce {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer .brand { color: #FBFAF5; font-size: 1.25rem; }
+.footer .brand span { color: var(--mosaz); }
+
+.footer h3 {
+  font-family: var(--pismo-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mosaz);
+  margin-bottom: 0.8em;
+}
+
+.footer ul { list-style: none; margin: 0; padding: 0; }
+.footer li { margin-bottom: 0.45em; }
+
+.footer-pata {
+  border-top: 1px solid rgba(237, 234, 224, 0.2);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  font-size: 0.85rem;
+  color: #9DB3A9;
+}
+
+/* ---------- Mobilní zobrazení ---------- */
+
+@media (max-width: 780px) {
+  .section { padding: 3.2rem 0; }
+
+  .hero { padding: 3rem 0 3.5rem; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 2rem; }
+
+  .sluzby { grid-template-columns: 1fr; }
+  .kusy { grid-template-columns: 1fr; }
+  .dvousloupec { grid-template-columns: 1fr; gap: 2rem; }
+  .kontakty { grid-template-columns: 1fr; }
+
+  .footer-sloupce { grid-template-columns: 1fr; gap: 1.8rem; }
+
+  .vyzva { padding: 2.2rem 1.4rem; }
+}
+
+/* ---------- Omezení animací (přístupnost) ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .btn:hover { transition: none; transform: none; }
+}

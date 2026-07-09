@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa webu. Po spuštění odeslat v Google Search Console
+     (Indexování -> Soubory Sitemap). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://krotitelenabytku.cz/</loc></url>
+  <url><loc>https://krotitelenabytku.cz/nabytek.html</loc></url>
+  <url><loc>https://krotitelenabytku.cz/renovace.html</loc></url>
+  <url><loc>https://krotitelenabytku.cz/vykup.html</loc></url>
+  <url><loc>https://krotitelenabytku.cz/kontakt.html</loc></url>
+</urlset>

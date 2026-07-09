@@ -1,0 +1,5 @@
+# Pokyny pro vyhledavace - vsechno je povolene k indexaci.
+User-agent: *
+Allow: /
+
+Sitemap: https://krotitelenabytku.cz/sitemap.xml

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<!-- ============================================================
+     KROTITELÉ NÁBYTKU — index.html (úvodní stránka)
+
+     ZBÝVÁ PŘED SPUŠTĚNÍM (hledejte text „DOPLNIT"):
+     1. Fotky — nahraďte bloky <div class="ph …"> podle návodu v README.md
+     2. Popisy u karet kusů na nabytek.html (kostry s cenami už tam jsou)
+     Kontakty, jména, doména, IČO i formulář jsou hotové.
+     ============================================================ -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Krotitelé nábytku – renovace a prodej starého nábytku | Halabala, Thonet, mid-century</title>
+  <meta name="description" content="Renovujeme československý nábytek 50.–70. let v restaurátorské kvalitě – Halabala, Thonet, sektorový nábytek. Prodej zrenovovaných kusů, renovace na zakázku i výkup. Hradec Králové a Praha, doprava po celé ČR.">
+
+  <!-- Náhledy při sdílení (Facebook, WhatsApp…). Až budete mít doménu a fotku,
+       doplňte og:url a og:image s absolutní adresou. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:url" content="https://krotitelenabytku.cz/">
+  <meta property="og:title" content="Krotitelé nábytku – renovace a prodej starého nábytku">
+  <meta property="og:description" content="Československý design 50.–70. let v restaurátorské kvalitě. Zrenovované kusy, renovace na zakázku, výkup a odvoz.">
+  <!-- <meta property="og:image" content="https://krotitelenabytku.cz/fotky/nahled.jpg"> -->
+
+  <link rel="canonical" href="https://krotitelenabytku.cz/">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪑</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Strukturovaná data pro Google (místní firma).
+       Údaje jsou doplněné. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Krotitelé nábytku",
+    "description": "Renovace a prodej starého nábytku – československý design 50.–70. let. Renovace na zakázku, výkup a odvoz starého nábytku.",
+    "email": "krotitelenabytku@gmail.com",
+    "telephone": "+420608207307",
+    "url": "https://krotitelenabytku.cz",
+    "sameAs": [
+      "https://www.instagram.com/krotitelenabytku/",
+      "https://www.facebook.com/profile.php?id=61591566041353"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Radíkovice",
+      "addressRegion": "Královéhradecký kraj",
+      "addressCountry": "CZ"
+    },
+    "areaServed": ["Hradec Králové", "Praha", "Česká republika"]
+  }
+  </script>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Krotitelé <span>nábytku</span></a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="index.html" aria-current="page">Domů</a>
+      <a href="nabytek.html">Nábytek</a>
+      <a href="renovace.html">Renovace</a>
+      <a href="vykup.html">Výkup</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ÚVODNÍ PANEL -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Renovace &amp; prodej starého nábytku</span>
+        <h1>Zkrotíme i kusy, které ostatní odepsali</h1>
+        <!-- Varianta B nadpisu (kdyby se měnilo jméno):
+             <h1>Renovace nábytku v restaurátorské kvalitě</h1> -->
+        <p>Renovujeme starý nábytek, především československý design 50. až 70. let. Křesla od Halabaly, ohýbané židle z&nbsp;Thonetu, sektorovky z&nbsp;Interiéru Praha. Kusy, které patří do obýváku, ne do sběrny.</p>
+        <div class="hero-akce">
+          <a class="btn btn--mosaz" href="nabytek.html">Co máme v dílně</a>
+          <a class="btn btn--obrys" href="renovace.html">Renovace na zakázku</a>
+        </div>
+      </div>
+      <!-- FOTKA: sem patří vaše nejlepší fotka — rozpracovaný kus na ponku,
+           detail práce, nebo hotové křeslo. Nahraďte celý div za:
+           <img src="fotky/hero.jpg" alt="Renovace křesla v dílně" class="foto"> -->
+      <div class="ph ph--vysoky ph--pred-po">
+        <small>Fotka: kus z dílny</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- CO DĚLÁME -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Co děláme</span>
+        <h2>Tři cesty, jak se k nám nábytek dostane — a od nás k vám</h2>
+      </div>
+      <div class="sluzby">
+        <div class="sluzba">
+          <h3>Zrenovovaný nábytek</h3>
+          <p>Vyhledáváme kusy, které stojí za záchranu: křesla, komody, židle, sektorový nábytek. V&nbsp;dílně jim opravíme konstrukci, obnovíme povrch a přečalouníme je. Prodáváme s&nbsp;fotkami před a po, ať přesně víte, co si nesete domů.</p>
+          <a href="nabytek.html">Prohlédnout nabídku</a>
+        </div>
+        <div class="sluzba">
+          <h3>Renovace na zakázku</h3>
+          <p>Zrenovujeme i váš vlastní kus, od babiččiny komody po křeslo z&nbsp;bazaru. Předem řekneme, co kus potřebuje, jak budeme postupovat a kolik to bude stát.</p>
+          <a href="renovace.html">Jak to probíhá</a>
+        </div>
+        <div class="sluzba">
+          <h3>Výkup a odvoz</h3>
+          <p>Zbavujete se starého nábytku? Než skončí ve sběrném dvoře, pošlete nám fotku. Buď ho vykoupíme, nebo odvezeme zdarma — pokud je to kus, který umíme vrátit do hry.</p>
+          <a href="vykup.html">Co vykupujeme</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÁVĚ V DÍLNĚ -->
+  <section class="section section--pisek">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Právě v dílně</span>
+        <h2>Sklad se teprve plní — a to je možná dobře</h2>
+        <p>Dílnu jsme rozjeli nedávno. Místo abychom čekali, až bude plno, ukazujeme rovnou to, na čem pracujeme. Každý kus je focený tak, jak k&nbsp;nám přišel — žádné katalogové obrázky. Když vás některý zaujme, napište si o&nbsp;něj: zarezervujeme vám ho a na finální podobě renovace se domluvíme společně.</p>
+      </div>
+
+      <!-- Tři ochutnávky z dílny. Fotky nahraďte podle README.md,
+           popisky upravte podle skutečných kusů. -->
+      <div class="sluzby">
+        <div>
+          <div class="ph"><small>Fotka: kus č. 1 — DOPLNIT</small></div>
+        </div>
+        <div>
+          <div class="ph"><small>Fotka: kus č. 2 — DOPLNIT</small></div>
+        </div>
+        <div>
+          <div class="ph"><small>Fotka: kus č. 3 — DOPLNIT</small></div>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem;"><a class="btn" href="nabytek.html">Celá nabídka</a></p>
+    </div>
+  </section>
+
+  <!-- JAK PRACUJEME -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Jak pracujeme</span>
+        <h2>Nejsme bazar s rychlým přestříkáním</h2>
+      </div>
+      <div style="max-width: 680px;">
+        <p>Každý kus nejdřív celý projdeme: konstrukci, spoje, povrch, čalounění. Podle toho rozhodneme, co si zaslouží — někdy stačí hloubkové čištění a oživení původní politury, jindy kus rozebereme do posledního šroubku.</p>
+        <p>Držíme se postupů přiměřených stáří a hodnotě nábytku: klížené spoje místo vrutů, šelak a olej místo tlusté vrstvy laku, původní kování všude, kde to jde. U&nbsp;běžnějších kusů si naopak dovolíme víc volnosti, třeba odvážnější látku nebo změnu odstínu.</p>
+        <p>A všechno dokumentujeme. U&nbsp;každého kusu najdete fotky před renovací a popis toho, co přesně jsme udělali.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KDO JSME -->
+  <section class="section section--pisek">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kdo jsme</span>
+        <h2>Jsme dva a dělíme si to podle toho, co komu jde</h2>
+      </div>
+      <div class="dvousloupec">
+        <!-- FOTKA: společná fotka vás dvou v dílně. Důležitější než text —
+             lidé kupují od lidí. -->
+        <div class="ph ph--vysoky"><small>Fotka: my dva v dílně</small></div>
+        <div>
+          <p><strong>Kuba</strong> je vystudovaný restaurátor. K&nbsp;řemeslu se dostal doma — v&nbsp;rodině se restaurování věnuje už předchozí generace — a při studiu se zaměřil na knihy a historické zbraně. Zní to daleko od nábytku, ale přístup je stejný: nejdřív pochopit, jak a z&nbsp;čeho byl předmět vyrobený, a teprve potom na něj sáhnout. V&nbsp;dílně má hlavní slovo v&nbsp;tom, co a jak se bude dělat.</p>
+          <p><strong>Krištof</strong> se stará o všechno ostatní: dílnu v&nbsp;Radíkovicích u&nbsp;Hradce Králové, hledání kusů po celé republice, dopravu, focení a domluvu se zákazníky. A&nbsp;protože práce je v&nbsp;dílně vždycky dost, postupně přebírá i&nbsp;část řemesla.</p>
+          <p>Nábytek vybíráme společně a platí jednoduché pravidlo: bereme jen kusy, u&nbsp;kterých věříme, že po renovaci vydrží dalších padesát let.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHÁNÍTE KONKRÉTNÍ KUS? -->
+  <section class="section">
+    <div class="wrap">
+      <div class="vyzva">
+        <span class="eyebrow">Hledáte něco konkrétního?</span>
+        <h2>Sháníte konkrétní kus?</h2>
+        <p>Křeslo H-269 po Halabalovi? Šest thonetek ke stolu po babičce? Konkrétní sektorová sestava? Napište nám, co hledáte.</p>
+        <p>Denně procházíme inzeráty z&nbsp;celé republiky a dostaneme se i ke kusům, které na velkých bazarech nikdy nezahlédnete. Až na ten váš narazíme, ozveme se. Nezávazně, bez zálohy.</p>
+        <a class="btn btn--mosaz" href="kontakt.html">Napište nám, co sháníte</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-sloupce">
+      <div>
+        <a class="brand" href="index.html">Krotitelé <span>nábytku</span></a>
+        <p style="margin-top: 0.8rem;">Renovace a prodej československého nábytku 50.–70. let. Poctivě, kus po kuse.</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="mailto:krotitelenabytku@gmail.com">krotitelenabytku@gmail.com</a></li>
+          <li><a href="tel:+420608207307">+420 608 207 307</a></li>
+          <li><a href="https://www.instagram.com/krotitelenabytku/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61591566041353">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kde nás najdete</h3>
+        <ul>
+          <li>Dílna: Radíkovice u Hradce Králové</li>
+          <li>Osobní předání: Hradec Králové a Praha</li>
+          <li>Doprava po celé ČR po domluvě</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-pata">
+      <span>© 2026 Krotitelé nábytku · IČO: 08500738</span>
+      <!-- Až pošleš odkaz na Krotitele chaosu, doplň ho a odkomentuj řádek:
+      <span>Ze stejné stáje jako <a href="https://DOPLNIT-odkaz-na-krotitele-chaosu.cz">Krotitelé chaosu</a></span>
+      -->
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
