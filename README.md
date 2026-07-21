@@ -1,55 +1,46 @@
 # Krotitelé nábytku — web
 
-Statický web, žádné závislosti, žádný build.
+Statický web s čistými adresami (bez .html). Struktura:
 
-| Soubor | Co to je |
+| Cesta | Co to je |
 |---|---|
-| `index.html` | úvodní stránka |
-| `nabytek.html` | nabídka kusů — 2 sety + 2 páry + židle + stůl, ceny nastřelené |
-| `renovace.html` | renovace na zakázku — ceny „od" nastřelené podle trhu |
-| `vykup.html` | výkup a odvoz |
-| `kontakt.html` | kontakty + formulář s přílohami (FormSubmit — ⚠️ nutná aktivace, viz komentář v souboru) |
-| `dekujeme.html` | děkovací stránka po odeslání formuláře |
-| `soukromi.html` | ochrana osobních údajů — kompletní |
-| `fonts/` | písma servírovaná z vlastního webu (žádné Google Fonts = žádný přenos IP třetí straně) |
-| `style.css` | vzhled webu (barvy a písma v bloku `:root` nahoře) |
-| `sitemap.xml`, `robots.txt` | pro vyhledávače — hotové, míří na krotitelenabytku.cz |
+| `index.html` | úvodní stránka → krotitelenabytku.cz/ |
+| `nabytek/`, `renovace/`, `vykup/`, `kontakt/` | podstránky → /nabytek/ atd. |
+| `dekujeme/`, `soukromi/` | děkovačka formuláře, ochrana údajů |
+| `nabytek.html` … (v kořeni) | přesměrovací pahýly ze starých adres — nemazat |
+| `fotky/`, `fonts/` | obrázky a vlastní písma |
+| `style.css`, `sitemap.xml`, `robots.txt`, `.nojekyll`, `CNAME` | zázemí |
 
-**Náhled:** otevřít `index.html` v prohlížeči; soubory musí zůstat pohromadě.
+**Lokální náhled:** web používá absolutní cesty (`/style.css`), takže otevření souboru
+napřímo už nestačí. Ve složce spusťte `python3 -m http.server` a otevřete
+http://localhost:8000 — nebo koukejte rovnou na živý web.
 
-## Stav
+## Nasazení změn
 
-**Hotovo:** kontakty (e-mail, telefon, Instagram, Facebook), jména, IČO, doména
-propsaná všude (canonical, og:url, og:image, sitemap, robots, strukturovaná data),
-funkční formulář (Formspree), fotky kusů ve složce `fotky/` (zmenšené, bez EXIF).
+Obsah této složky = obsah repozitáře (včetně podsložek). Soubor **CNAME
+v repozitáři vždy zachovat** (drží doménu; obsahuje řádek `krotitelenabytku.cz`).
+Přes Claude Code: „přepiš obsah repozitáře obsahem složky web, zachovej CNAME,
+commitni a pushni". Ručně: GitHub → Add file → Upload files → přetáhnout obsah složky.
 
-**Zbývá** (nic z toho neblokuje nasazení):
-1. **Chybějící fotky:** jídelní stůl (karta má zástupný blok) a společná fotka
-   vás dvou do sekce Kdo jsme. Nová fotka = uložit do `fotky/` a vložit
-   `<img src="fotky/nazev.jpg" alt="popis kusu" class="foto">`.
-2. **Ceny** na kartách i na stránce Renovace jsou nástřel — potvrdit nebo posunout.
-3. Volitelně: odkaz na Krotitele chaosu v patičce `index.html` (zakomentovaný řádek).
+## Kusy a fotky
 
-## Nasazení (GitHub Pages)
+- Nový kus = zkopírovat kartu v `nabytek/index.html`. Prodané nemazat,
+  jen přepnout štítek na `badge--prodano` — jsou to reference.
+- Nová fotka: uložit do `fotky/` a vložit
+  `<img src="/fotky/nazev.jpg" alt="popis kusu" class="foto">`.
+- Čekající šablony v komentářích: karta stolu (nabytek), společná fotka
+  (index, sekce Kdo jsme), fotka z práce (renovace), odkaz na Krotitele
+  chaosu (index, patička).
 
-1. Veřejný repozitář, **obsah** této složky do kořene (index.html v rootu), push.
-2. Settings → Pages → Deploy from a branch → `main` + `/ (root)`.
-3. Custom domain: `krotitelenabytku.cz` → Save.
-4. DNS u GoDaddy: 4× A záznam `@` → 185.199.108.153 / .109.153 / .110.153 / .111.153,
-   CNAME `www` → `tvuj-ucet.github.io`, smazat parkovací A záznam.
-5. Po zezelenání DNS kontroly zaškrtnout Enforce HTTPS.
+## Po nasazení nové struktury
 
-## Po spuštění
+V Search Console požádat o indexaci čistých adres: `/`, `/nabytek/`,
+`/renovace/`, `/vykup/`, `/kontakt/`. Staré .html adresy přesměrovávají
+a mají canonical — Google se přelije sám.
 
-- **Search Console** (typ Doména, ověření TXT záznamem) → odeslat `sitemap.xml`.
-- **Google Business Profile** — kategorie „renovace nábytku", Radíkovice,
-  oblast Hradec Králové + Praha.
-- **Firmy.cz** — bezplatný zápis (Seznam + Mapy.cz).
-- Nový kus = zkopírovat kartu v `nabytek.html`, přepsat, přidat fotku.
-  Prodané kusy nemazat, jen štítek `badge--prodano` — jsou to reference.
+## Vzhled a soukromí
 
-## Úprava vzhledu
-
-Barvy a písma = proměnné v `:root` na začátku `style.css`; změna tam se propíše
-do celého webu. Design vychází z bruselského stylu: petrolejová, ořech, mosaz,
-Zilla Slab. Logo ve stejné barevnosti je v samostatném zipu.
+Barvy a písma = `:root` v `style.css`. Písma servírujeme vlastní (`fonts/`),
+web nemá cookies ani třetí strany → žádná cookie lišta. Případnou analytiku
+řešit bezcookies nástrojem a zároveň upravit sekci „Cookies a měření"
+v `soukromi/index.html`.
