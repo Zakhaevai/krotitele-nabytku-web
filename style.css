@@ -6,6 +6,29 @@
    v bloku :root níže — propíše se to do celého webu.
    ============================================================ */
 
+/* ---------- Vlastní hosting písem (složka fonts/) ---------- */
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("fonts/ZillaSlab-Medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("fonts/ZillaSlab-SemiBold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("fonts/ZillaSlab-Bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("fonts/WorkSans.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+
 :root {
   /* Barvy — inspirace bruselským stylem a materiály dílny */
   --petrolej:        #1D5C58;  /* hlavní barva značky */
@@ -261,8 +284,11 @@ a:hover { color: var(--petrolej-tmavy); }
   border: 1px solid var(--orech);
 }
 
-/* Hotová fotka (až placeholder nahradíte) */
-.foto { border-radius: var(--radius); width: 100%; height: auto; }
+/* Hotová fotka */
+.foto { border-radius: var(--radius); width: 100%; height: auto; display: block; }
+.hero .foto { aspect-ratio: 4 / 5; object-fit: cover; }
+.sluzby .foto { aspect-ratio: 4 / 3; object-fit: cover; }
+.kus .foto { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0; border-bottom: 1px solid var(--pisek-tmavy); }
 
 /* ---------- Karty služeb (Co děláme) ---------- */
 

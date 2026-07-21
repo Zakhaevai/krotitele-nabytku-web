@@ -20,9 +20,7 @@
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪑</text></svg>">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Písma servírujeme z vlastní složky fonts/ (definice ve style.css) -->
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -54,14 +52,14 @@
 
   <section class="section">
     <div class="wrap">
-      <div class="dvousloupec">
+      <div style="max-width: 680px;">
         <div>
           <p>Nejlépe nám sedí nábytek z&nbsp;masivu, dýhy a ohýbaného dřeva, zvlášť kusy z&nbsp;minulého století. Poradíme si ale s&nbsp;většinou toho, co domů patří.</p>
           <p>A když bude oprava stát víc, než je rozumné, řekneme vám to rovnou. I&nbsp;to k&nbsp;řemeslu patří.</p>
         </div>
-        <!-- FOTKA: rozpracovaný zakázkový kus, detail rukou při práci.
-             Nahraďte za: <img src="fotky/zakazka.jpg" alt="Renovace čalouněného křesla" class="foto"> -->
-        <div class="ph"><small>Fotka: práce na zakázce</small></div>
+        <!-- Až bude fotka z práce na zakázce, přidejte sem
+             <img src="fotky/zakazka.jpg" alt="Renovace čalouněného křesla v dílně" class="foto">
+             a nahoře vraťte class="dvousloupec" místo stylu s max-width. -->
       </div>
     </div>
   </section>
@@ -158,6 +156,7 @@
     </div>
     <div class="footer-pata">
       <span>© 2026 Krotitelé nábytku · IČO: 08500738</span>
+      <span><a href="soukromi.html">Ochrana soukromí</a></span>
     </div>
   </div>
 </footer>

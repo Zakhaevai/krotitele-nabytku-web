@@ -5,10 +5,13 @@ Statický web, žádné závislosti, žádný build.
 | Soubor | Co to je |
 |---|---|
 | `index.html` | úvodní stránka |
-| `nabytek.html` | nabídka kusů — vaše kusy, ceny nastřelené (⚠️ doplnit popisy) |
+| `nabytek.html` | nabídka kusů — 2 sety + 2 páry + židle + stůl, ceny nastřelené |
 | `renovace.html` | renovace na zakázku — ceny „od" nastřelené podle trhu |
 | `vykup.html` | výkup a odvoz |
-| `kontakt.html` | kontakty + formulář (funkční, odesílá na gmail) |
+| `kontakt.html` | kontakty + formulář s přílohami (FormSubmit — ⚠️ nutná aktivace, viz komentář v souboru) |
+| `dekujeme.html` | děkovací stránka po odeslání formuláře |
+| `soukromi.html` | ochrana osobních údajů — kompletní |
+| `fonts/` | písma servírovaná z vlastního webu (žádné Google Fonts = žádný přenos IP třetí straně) |
 | `style.css` | vzhled webu (barvy a písma v bloku `:root` nahoře) |
 | `sitemap.xml`, `robots.txt` | pro vyhledávače — hotové, míří na krotitelenabytku.cz |
 
@@ -17,18 +20,14 @@ Statický web, žádné závislosti, žádný build.
 ## Stav
 
 **Hotovo:** kontakty (e-mail, telefon, Instagram, Facebook), jména, IČO, doména
-propsaná všude (canonical, og:url, sitemap, robots, strukturovaná data),
-funkční formulář (Formspree).
+propsaná všude (canonical, og:url, og:image, sitemap, robots, strukturovaná data),
+funkční formulář (Formspree), fotky kusů ve složce `fotky/` (zmenšené, bez EXIF).
 
-**Zbývá před spuštěním** (v souborech označeno slovem `DOPLNIT`):
-1. **Fotky** — složku `fotky/` vedle HTML souborů, pak každý blok
-   `<div class="ph …">…</div>` nahradit:
-   ```html
-   <img src="fotky/nazev.jpg" alt="Křeslo H-269 Jindřich Halabala před renovací" class="foto">
-   ```
-   `alt` vyplnit vždy (kus, návrhář, před/po) — čte ho Google i nevidomí.
-2. **Popisy kusů** v `nabytek.html` — doplnit značení výrobce, míry, stav a plán
-   (karty s cenami už tam jsou); ceny všude jsou nástřel, klidně posunout.
+**Zbývá** (nic z toho neblokuje nasazení):
+1. **Chybějící fotky:** jídelní stůl (karta má zástupný blok) a společná fotka
+   vás dvou do sekce Kdo jsme. Nová fotka = uložit do `fotky/` a vložit
+   `<img src="fotky/nazev.jpg" alt="popis kusu" class="foto">`.
+2. **Ceny** na kartách i na stránce Renovace jsou nástřel — potvrdit nebo posunout.
 3. Volitelně: odkaz na Krotitele chaosu v patičce `index.html` (zakomentovaný řádek).
 
 ## Nasazení (GitHub Pages)
